@@ -13,12 +13,15 @@ public class LvlAme1 : MonoBehaviour
     public TextMeshProUGUI texteAme1;
 
     public int lvlame1 = 0;
-    
+    public int coutame1 = 10;
+    public int power1 = 1;
+    public float powerspeed = 0.8f;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine(PowerSpeed());
     }
 
     // Update is called once per frame
@@ -30,19 +33,30 @@ public class LvlAme1 : MonoBehaviour
 
     public void lvlupAme1()
     {
-        if (scoreGagne.score >= 5)
+        if (scoreGagne.score >= coutame1)
         {
-            scoreGagne.score -= 5;
+            scoreGagne.score -= coutame1;
             lvlame1++;
-            texteAme1.text = "Amelioration 1 a " + lvlame1;
+            scoreGagne.score = power1;
+            coutame1 = coutame1 *2;
+            texteAme1.text = "Cimetiere " + lvlame1 + " Level 2 dans " + coutame1 + " d'ames.";
 
             //Debug.Log("lvlup1");
         }
-        if (scoreGagne.score >= 10)
+    }
+    public IEnumerator PowerSpeed()
+    {
+        while (true)
         {
-            scoreGagne.score -= 10;
-            lvlame1++;
-            texteAme1.text = "Amelioration 1 a " + lvlame1;
+            if (lvlame1 > 0)
+            {
+                Debug.Log("jepassdanslacoroytine");
+                scoreGagne.RiseScore(1);
+            }
+            yield return new WaitForSeconds(2);
         }
+        
+        
+        
     }
 }
