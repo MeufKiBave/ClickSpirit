@@ -14,8 +14,7 @@ public class LvlAme1 : MonoBehaviour
 
     public int lvlame1 = 0;
     public int coutame1 = 10;
-    public int power1 = 1;
-    public float powerspeed = 0.8f;
+    public float Powavite = 2;
 
 
     // Start is called before the first frame update
@@ -37,10 +36,9 @@ public class LvlAme1 : MonoBehaviour
         {
             scoreGagne.score -= coutame1;
             lvlame1++;
-            scoreGagne.score = power1;
             coutame1 = coutame1 *2;
             texteAme1.text = "Cimetiere " + lvlame1 + " Level 2 dans " + coutame1 + " d'ames.";
-
+            Powavite -= 0.3f;
             //Debug.Log("lvlup1");
         }
     }
@@ -53,7 +51,7 @@ public class LvlAme1 : MonoBehaviour
                 Debug.Log("jepassdanslacoroytine");
                 scoreGagne.RiseScore(1);
             }
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(Powavite);
         }
         
         
