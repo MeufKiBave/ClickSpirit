@@ -37,7 +37,7 @@ public class LvlAme1 : MonoBehaviour
             scoreGagne.score -= coutame1;
             lvlame1++;
             coutame1 = coutame1 *2;
-            texteAme1.text = "Cimetiere " + lvlame1 + " Level 2 dans " + coutame1 + " d'ames.";
+            texteAme1.text = "Deplumeur mécanique " + lvlame1 +"." + " Prochain niveau dans " + coutame1 + " plumes.";
             Powavite -= 0.3f;
             //Debug.Log("lvlup1");
         }
